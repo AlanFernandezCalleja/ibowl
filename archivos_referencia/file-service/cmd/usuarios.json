@@ -1,0 +1,30 @@
+[
+  {
+    "nombre": "alberto zuñiga",
+    "edad": 23,
+    "correo": "alberto@ucb.edu.bo",
+    "password": "25011880",
+    "fecha_creacion": "2025-05-12 16:51:57"
+  },
+  {
+    "nombre": "Manuel Alvarez",
+    "edad": 35,
+    "correo": "alvarez.bo@gmail.com",
+    "password": "250111990",
+    "fecha_creacion": "2025-05-12 16:59:48"
+  },
+  {
+    "nombre": "Pololongo",
+    "edad": 43,
+    "correo": "hernesto2024",
+    "password": "250019190",
+    "fecha_creacion": "2025-05-12 17:00:42"
+  },
+  {
+    "nombre": "Hola popo",
+    "edad": 23,
+    "correo": "asljdfl",
+    "password": "aldfjald",
+    "fecha_creacion": "2025-05-12 19:21:20"
+  }
+]

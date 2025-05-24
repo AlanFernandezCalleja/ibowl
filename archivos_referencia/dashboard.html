@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Sensores IoT</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="stylesDash.css">
+</head>
+
+<body>
+    <!-- Menú Lateral -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-paw"></i> iBowl</h3>
+        </div>
+
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="#" class="active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mascotas.html">
+                        <i class="fas fa-dog"></i>
+                        <span>Mascotas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-users"></i>
+                        <span>Usuarios</span>
+                    </a>
+                </li>
+
+                <div class="divider"></div>
+
+                <li>
+                    <a href="#">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div class="main-content">
+        <div class="dashboard-container">
+            <header class="dashboard-header">
+                <h1><i class="fas fa-chart-line"></i> Monitor de Sensores en Tiempo Real</h1>
+                <div class="last-update" id="lastUpdate">Última actualización: --</div>
+            </header>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card chart-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-ruler-vertical"></i> Nivel Comida (%)</h2>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="distanciaChart"></canvas>
+                    </div>
+                    <div class="card-footer">
+                        <div class="sensor-value" id="currentDistance">Valor actual: -- cm</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card status-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-running"></i> Detección de Movimiento</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="sensor-status">
+                            <div id="movimientoIndicator" class="indicator-circle off"></div>
+                            <div class="status-text" id="movimientoText">Inactivo</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="last-detection" id="lastDetection">Última detección: --</div>
+                    </div>
+                </div>
+
+                <!-- Bloque: Información del dispositivo + botón Alimentar -->
+                <div class="dashboard-card device-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-microchip"></i> Dispositivo</h2>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>ID:</strong> <span id="deviceId">ESP8266-001</span></p>
+                        <p><strong>Estado:</strong> <span id="deviceStatus">Desconectado</span></p>
+                        <p><strong>Última conexión:</strong> <span id="deviceLastSeen">DD/MM/AA HH:MM</span></p>
+                        <button class="btn-feed" onclick="alimentar()">Alimentar</button>
+                    </div>
+                </div>
+
+                <!-- Bloque: Veces alimentadas -->
+                <div class="dashboard-card feed-count-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-bone"></i> Veces alimentadas hoy</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3 id="feedCountToday">0 veces</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="dashboard-footer">
+                <p>Sistema de monitoreo IoT &copy; 2025</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="scriptDash.js"></script>
+</body>
+
+</html>
